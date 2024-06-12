@@ -50,8 +50,14 @@ model.summary()
 # train the model
 model.fit(train_data, epochs=EPOCHS, batch_size = BATCHSIZE)
 
-# evaluate the model
+# evaluate the model and print the results
 model.evaluate(test_data)
+
+# make predictions on test data
+predictions = model.predict(test_data)
+
+# print the predicted labels
+print(predictions)
 
 # save the model
 model.save('baseline_model.h5')
