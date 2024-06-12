@@ -1,13 +1,13 @@
 # use keras application resnet152v2 as baseline model with new top of 4 nodes
 
 BATCHSIZE = 32
-EPOCHS = 10
+EPOCHS = 1
 
 
 from tensorflow.keras.applications import ResNet152V2
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
-from tesnorflow.keras import preprocessing
+from tensorflow.keras import preprocessing
 # use keras.preprocessing.image_dataset_from_directory to load images from ./TRAIN, split 80/20 for testing
 train_data = preprocessing.image_dataset_from_directory(
     './TRAIN',
@@ -42,7 +42,7 @@ for layer in base_model.layers:
     layer.trainable = False
 
 # compile the model
-model.compile(optimizer='adam', loss='categorical_crossentropy')
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')
 
 # print model summary
 model.summary()

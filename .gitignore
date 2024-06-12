@@ -160,3 +160,14 @@ cython_debug/
 #.idea/
 # sourcedata
 sourcedata/
+./2_BaselineModel/blood-cells.zip
+./2_BaselineModel/TRAIN/
+./2_BaselineModel/dataset-master/
+
+./2_BaselineModel/dataset2-master/
+
+
+.jpg
+.jpeg
+.png
+
