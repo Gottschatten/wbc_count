@@ -1,10 +1,16 @@
-# simple baseline for image classification for 4 classes dataset in ../sourcedata/dataset-master/dataset-master/JPEGImages/ labels in ../sourcedata/dataset-master/dataset-master/labels.csv with
+# fetch dataset from keggle datasets download -d paultimothymooney/blood-cells
 
 import os
-import pandas as pd
-import numpy as np
-import cv2
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from zipfile import ZipFile
 
-:
+
+# download dataset from kaggle
+os.system('kaggle datasets download -d paultimothymooney/blood-cells')
+
+# extract dataset
+with ZipFile('blood-cells.zip', 'r') as zipObj:
+   # Extract all the contents of zip file in current directory
+   zipObj.extractall()
+   
+print('Done!')
+
