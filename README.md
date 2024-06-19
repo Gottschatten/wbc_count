@@ -2,21 +2,22 @@
 
 ## Repository Link
 
-[https://github.com/your_username/your_project_name]
+[https://github.com/Gottschatten/wbc_count]
 
 ## Description
 
-[Short project description here. Briefly summarize the problem you are trying to solve and the approach you're taking.]
+This project aims to create a NN that can classify different types of white blood cells, for medical diagnostics. 
+It is based on the ResNat152V2 RNN.
 
 ### Task Type
 
-[Image Classification / Chatbot / Regression / Clustering / Other]
+[Image Classification]
 
 ### Results Summary
 
-- **Best Model:** [Name of the best-performing model]
-- **Evaluation Metric:** [e.g., Accuracy, F1-Score, MSE]
-- **Result:** [e.g., 95% accuracy, F1-score of 0.8]
+- **Best Model:** ResNet152V2
+- **Evaluation Metric:** [Accuracy]
+- **Result:** [Accuracy of 97%]
 
 ## Documentation
 

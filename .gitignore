@@ -120,6 +120,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.envrc
 .env
 .venv
 env/
@@ -167,7 +168,15 @@ sourcedata/
 ./2_BaselineModel/dataset2-master/
 
 
-.jpg
-.jpeg
-.png
+*.jpg
+*.jpeg
+*.png
+*.keras
 
+shell.nix
+*.nix
+/.direnv/
+
+*.txt
+*.xml
+*.csv

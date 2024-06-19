@@ -8,16 +8,18 @@ from tensorflow.keras.applications import ResNet152V2
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
 from tensorflow.keras import preprocessing
+import numpy as np
+
 # use keras.preprocessing.image_dataset_from_directory to load images from ./TRAIN, split 80/20 for testing
 train_data = preprocessing.image_dataset_from_directory(
-    './TRAIN',
+    '../1_DatasetCharacteristics/train/',
     validation_split=0.2,
     subset='training',
     seed=123,
 )
 
 test_data = preprocessing.image_dataset_from_directory(
-    './TRAIN',
+    '../1_DatasetCharacteristics/train/',
     validation_split=0.2,
     subset='validation',
     seed=123
@@ -42,7 +44,7 @@ for layer in base_model.layers:
     layer.trainable = False
 
 # compile the model
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = 'accuracy')
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics = ['accuracy'])
 
 # print model summary
 model.summary()
@@ -56,11 +58,18 @@ model.evaluate(test_data)
 # make predictions on test data
 predictions = model.predict(test_data)
 
-# print the predicted labels
+
+# compare predictions with actual labels
+predictions = model.predict(test_data)
+predictions = np.argmax(predictions, axis=1)
+actual = np.concatenate([y for x, y in test_data], axis=0)
 print(predictions)
+print(actual)
 
-# save the model
-model.save('baseline_model.h5')
+# calculate accuracy
+accuracy = np.mean(predictions == actual)
+print(f'Accuracy: {accuracy}')
 
-print('Done!')
-
+#save accuracy to file
+with open('baseline-accuracy.txt', 'w') as f:
+    f.write(f'Accuracy: {accuracy}')
