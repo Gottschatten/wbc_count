@@ -170,7 +170,7 @@ sourcedata/
 
 *.jpg
 *.jpeg
-*.png
+
 *.keras
 
 shell.nix
